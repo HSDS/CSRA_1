@@ -1,0 +1,24 @@
+C:\Business\Samples\DirectShow WPF\CamControl\bin\Debug\WebCameraControl.dll
+C:\Business\Samples\DirectShow WPF\CamControl\bin\Debug\WebCameraControl.pdb
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl.g.cs
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl_MarkupCompile.cache
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl_MarkupCompile.lref
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl.baml
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl.g.resources
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebEye.Properties.Resources.resources
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl.csproj.GenerateResource.Cache
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl.dll
+C:\Business\Samples\DirectShow WPF\CamControl\obj\Debug\WebCameraControl.pdb
+C:\Business\SAA\CSRA_1\CamControl\bin\Debug\WebCameraControl.dll
+C:\Business\SAA\CSRA_1\CamControl\bin\Debug\WebCameraControl.pdb
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl.g.cs
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl_MarkupCompile.cache
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl_MarkupCompile.lref
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl.baml
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl.g.resources
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebEye.Properties.Resources.resources
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl.csproj.GenerateResource.Cache
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl.dll
+C:\Business\SAA\CSRA_1\CamControl\obj\Debug\WebCameraControl.pdb

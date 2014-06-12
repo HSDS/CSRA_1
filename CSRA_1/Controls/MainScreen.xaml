@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="CSRA_1.Controls.MainScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="420">
+    <Grid >
+        <StackPanel Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Center" Margin="10" Padding="10" FontSize="16" TextWrapping="Wrap" Text="Corneal Specular Reflection Authentication" />
+            <Button Content="Enroll" HorizontalAlignment="Center" Width="100" Margin="8" Padding="8" FontSize="16" Name="buttonEnroll" Click="buttonEnroll_Click"/>
+            <Button Content="Verify" HorizontalAlignment="Center" Width="100" Margin="8" Padding="8" FontSize="16" Name="buttonVerify" Click="buttonVerify_Click" />
+            <Button Content="Options" HorizontalAlignment="Center" Width="100" Margin="8" Padding="8" FontSize="16" Name="buttonOptions" Click="buttonOptions_Click"/>
+            <Button Content="Calibrate" HorizontalAlignment="Center" Width="100" Margin="8" Padding="8" FontSize="16" Name="buttonCalibrate" Click="buttonCalibrate_Click"/>
+            <Button Content="Exit" HorizontalAlignment="Center" Width="100" Margin="8" Padding="8" FontSize="16" Name="buttonExit" Click="buttonExit_Click"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
