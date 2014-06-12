@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\
+C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\obj\Debug\
 CSRA_1
 none
 false
 DEBUG;TRACE
-C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\App.xaml
+C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\App.xaml
 8622948327
 
 23-2062795125
-151146389503
+151370277872
 Controls\AcquireScreen.xaml;Controls\CalibrationScreen.xaml;Controls\EnrollScreen.xaml;Controls\MainScreen.xaml;Controls\OptionsScreen.xaml;Controls\VerifyScreen.xaml;Controls\VideoScreen.xaml;MainWindow.xaml;
 
 False

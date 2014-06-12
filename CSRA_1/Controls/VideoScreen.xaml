@@ -8,9 +8,9 @@
     <Grid>
 
         <DockPanel Margin="0,10,0,50">
-            <StackPanel Height="27" RenderTransformOrigin="0.5,0.5" Width="155" VerticalAlignment="Bottom" Margin="157,0,0,0" HorizontalAlignment="Center" Orientation="Horizontal" DockPanel.Dock="Bottom">
-                <Button x:Name="AcquireButton" Content="Acquire" Width="75" Margin="0,0,0,0" IsEnabled="{Binding IsCapturing, ElementName=webCameraControl}" Click="OnAcquireButtonClick" />
-                <Button x:Name="CancelButton" Content="Cancel" Width="75" Margin="4,0,0,0" IsEnabled="True" Click="OnCancelButtonClick" />
+            <StackPanel Height="27" RenderTransformOrigin="0.5,0.5" Width="312" VerticalAlignment="Bottom" Margin="34,0,33,0" HorizontalAlignment="Center" Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <Button x:Name="AcquireButton" Content="Acquire" Width="152" Margin="0,0,0,0" IsEnabled="{Binding IsCapturing, ElementName=webCameraControl}" Click="OnAcquireButtonClick" />
+                <Button x:Name="CancelButton" Content="Cancel" Width="154" Margin="4,0,0,0" IsEnabled="True" Click="OnCancelButtonClick" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Height="27" RenderTransformOrigin="0.5,0.5" Width="310" VerticalAlignment="Bottom" Margin="0,0,0,6">
                 <ComboBox x:Name="comboBox" Width="152" DisplayMemberPath="Name" SelectionChanged="OnSelectionChanged" />
