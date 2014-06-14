@@ -155,7 +155,7 @@ namespace CSRA_1
         {
             switch (e.PropertyName)
             {
-                case "OKButtonPress":
+                case "DoneButtonPress":
                   //  MessageBox.Show("OK");
                     break;
 

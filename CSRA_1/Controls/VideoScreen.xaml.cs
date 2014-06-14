@@ -14,8 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WebEye;
 using Microsoft.Win32;
+using Camera_NET;
+using System.Drawing;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace CSRA_1.Controls
 {
@@ -24,20 +26,70 @@ namespace CSRA_1.Controls
     /// </summary>
     public partial class VideoScreen : UserControl, INotifyPropertyChanged
     {
+        private Camera_NET.CameraControl cameraControl;
+        private Camera_NET.CameraChoice _CameraChoice;
+       
         public VideoScreen()
         {
             InitializeComponent();
-            InitializeComboBox();
+            cameraControl = new Camera_NET.CameraControl();
+            _CameraChoice = new CameraChoice();
+            InitializeDirectShow();
         }
 
-        private void InitializeComboBox()
+        private void InitializeDirectShow()
         {
-            comboBox.ItemsSource = webCameraControl.GetVideoCaptureDevices();
+            // Register OnPaint callback for directshow.
+            System.Windows.Forms.Integration.WindowsFormsHost host = new System.Windows.Forms.Integration.WindowsFormsHost();
+            cameraControl.Paint += new System.Windows.Forms.PaintEventHandler(pictureBox_Paint);
+            host.Child = cameraControl;
+            grid1.Children.Add(host);
 
-            if (comboBox.Items.Count > 0)
+            // Camera choice
+
+            // Get List of devices (cameras)
+            _CameraChoice.UpdateDeviceList();
+
+            // To get an example of camera and resolution change look at other code samples 
+            if (_CameraChoice.Devices.Count > 0)
             {
-                comboBox.SelectedItem = comboBox.Items[0];
+                // Device moniker. It's like device id or handle.
+                // Run first camera if we have one
+                var camera_moniker = _CameraChoice.Devices[0].Mon;
+
+                // Set selected camera to camera control with default resolution
+                cameraControl.SetCamera(camera_moniker, null);
+
+                FillCameraList();
             }
+        }
+
+        private void pictureBox_Paint(object sender, System.Windows.Forms.PaintEventArgs args)
+        {
+        }
+
+        private void Window_Closing(Object sender, RoutedEventArgs e)
+        {
+            cameraControl.CloseCamera();
+        }
+
+        private void buttonDone_Click(object sender, RoutedEventArgs e)
+        {
+            cameraControl.CloseCamera();
+            OnPropertyChanged("DoneButtonPress");
+        }
+
+        private void FillCameraList()
+        {
+            comboBoxCameraList.Items.Clear();
+            _CameraChoice.UpdateDeviceList();
+
+            foreach (var camera_device in _CameraChoice.Devices)
+            {
+                string str = camera_device.Name.ToString();
+                comboBoxCameraList.Items.Add(str);
+            }
+            comboBoxCameraList.SelectedIndex = 0;
         }
 
         #region INotifyPropertyChanged Members
@@ -56,37 +108,52 @@ namespace CSRA_1.Controls
 
         #endregion
 
-        private void OnStartButtonClick(object sender, RoutedEventArgs e)
+        private void comboBoxCameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var cameraId = (WebCameraId)comboBox.SelectedItem;
-            webCameraControl.StartCapture(cameraId);
-        }
-
-        private void OnStopButtonClick(object sender, RoutedEventArgs e)
-        {
-            webCameraControl.StopCapture();
-        }
-
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            startButton.IsEnabled = e.AddedItems.Count > 0;
-        }
-
-        private void OnAcquireButtonClick(object sender, RoutedEventArgs e)
-        {
-            var dialog = new SaveFileDialog { Filter = "Bitmap Image|*.bmp" };
-            if (dialog.ShowDialog() == true)
+ 
+            if (comboBoxCameraList.SelectedIndex < 0)
             {
-                webCameraControl.GetCurrentImage().Save(dialog.FileName);
+                cameraControl.CloseCamera();
+            }
+            else
+            {
+                // Set camera
+                SetCamera(_CameraChoice.Devices[comboBoxCameraList.SelectedIndex].Mon, null);
             }
 
-            webCameraControl.StopCapture();
-            OnPropertyChanged("OKButtonPress");
+           // FillResolutionList();
         }
 
-        private void OnCancelButtonClick(object sender, RoutedEventArgs e)
+        private void SetCamera(IMoniker camera_moniker, Resolution resolution)
         {
-            OnPropertyChanged("CancelButtonPress");
+            try
+            {
+                // NOTE: You can debug with DirectShow logging:
+                //cameraControl.DirectShowLogFilepath = @"C:\YOUR\LOG\PATH.txt";
+
+                // Makes all magic with camera and DirectShow graph
+                cameraControl.SetCamera(camera_moniker, resolution);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, @"Error while running camera");
+            }
+
+            if (!cameraControl.CameraCreated)
+                return;
+
+            // If you are using Direct3D surface overlay
+            // (see documentation about rebuild of library for it)
+            //cameraControl.UseGDI = false;
+
+            cameraControl.MixerEnabled = true;
+
+           // cameraControl.OutputVideoSizeChanged += Camera_OutputVideoSizeChanged;
+
+           // UpdateCameraBitmap();
+
+           //// gui update
+           // UpdateGUIButtons();
         }
     }
 }

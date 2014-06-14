@@ -57,8 +57,6 @@ C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.exe
 C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.pdb
 C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\CSRA_1.exe
 C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\CSRA_1.pdb
-C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\WebCameraControl.dll
-C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\WebCameraControl.pdb
 C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.csprojResolveAssemblyReference.cache
 C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\obj\Debug\Controls\AcquireScreen.baml
 C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\obj\Debug\Controls\CalibrationScreen.baml
@@ -110,3 +108,7 @@ C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1_MarkupCompile.cache
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.g.resources
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.Properties.Resources.resources
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.csproj.GenerateResource.Cache
+C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\Camera_NET.dll
+C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\DirectShowLib-2010.dll
+C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\Camera_NET.pdb
+C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\DirectShowLib-2010.pdb

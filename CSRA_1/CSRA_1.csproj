@@ -33,11 +33,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Camera_NET">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\Camera_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2010, Version=2.1.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Camera_Net\bin\Debug\DirectShowLib-2010.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -53,6 +61,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -162,12 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Analysis\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CamControl\WebCameraControl.csproj">
-      <Project>{9FE79CEF-86C5-4180-9AC1-3CF30BB14FD7}</Project>
-      <Name>WebCameraControl</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
