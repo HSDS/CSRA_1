@@ -180,9 +180,6 @@ namespace CSRA_1.Controls
 
             if (_SnapShotBMP == null)
                 return;
-
-            pictureBoxScreenshot.Source = CreateBitmapSourceFromBitmap(_SnapShotBMP);
-            pictureBoxScreenshot.Visibility = Visibility.Visible;
         }
 
         /*-------------------------------------------------------------------------------------------------------*/
@@ -190,7 +187,6 @@ namespace CSRA_1.Controls
         {
             SetCurrentCamera();
             BtnSnapShot.Content = "Snap Shot";
-            pictureBoxScreenshot.Visibility = Visibility.Hidden;
         }
 
         /*-------------------------------------------------------------------------------------------------------*/
