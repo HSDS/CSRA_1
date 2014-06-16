@@ -6,14 +6,17 @@
              xmlns:mcl="clr-namespace:Camera_NET;assembly=Camera_NET" 
              
              Unloaded="Window_Closing"
-             mc:Ignorable="d" Height="370" Width="380">
+             mc:Ignorable="d" Height="376" Width="380">
     <Grid x:Name="grid1" Height="240" Width="320" Margin="34,25,26,105">
         <WindowsFormsHost x:Name="CamCntrl"
-                        Height="240" Width="320" VerticalAlignment="Top" Visibility="Visible" Margin="0,0,0,0">
+                        Height="240" Width="320" VerticalAlignment="Top" Visibility="Visible" Margin="0,-10,0,0">
             <mcl:CameraControl Name="mc"/>
         </WindowsFormsHost>
 
-        <Button Content="Done" HorizontalAlignment="Center" Width="100" Margin="220,0,0,-52" Padding="8" FontSize="16" Name="buttonDone" Click="buttonDone_Click" VerticalAlignment="Bottom" Height="38"/>
-        <ComboBox x:Name="comboBoxCameraList" HorizontalAlignment="Left" Height="38" Margin="-5,254,0,-52" VerticalAlignment="Top" Width="220" SelectionChanged="comboBoxCameraList_SelectionChanged" FontSize="16"/>
+        <Button Content="Done" HorizontalAlignment="Center" Width="98" Margin="222,0,0,-44" Padding="8" FontSize="14" Name="buttonDone" Click="buttonDone_Click" VerticalAlignment="Bottom" Height="35"/>
+        <ComboBox x:Name="comboBoxCameraList" HorizontalAlignment="Left" Height="35" Margin="0,249,0,-44" VerticalAlignment="Top" Width="215" SelectionChanged="comboBoxCameraList_SelectionChanged" FontSize="14"/>
+        <Button x:Name="BtnSnapShot" Content="Snap Shot" HorizontalAlignment="Left" Height="35" Margin="0,292,0,-87" VerticalAlignment="Top" Width="156" FontSize="14" Click="BtnSnapShot_Click"/>
+        <Button x:Name="BtnSave" Content="Save It" HorizontalAlignment="Left" Height="35" Margin="164,292,0,-87" VerticalAlignment="Top" Width="156" FontSize="14" Click="BtnSave_Click"/>
+        <Image x:Name="pictureBoxScreenshot" HorizontalAlignment="Left" Height="240" Margin="-11,0,0,0" VerticalAlignment="Top" Width="331" Visibility="Hidden"/>
     </Grid>
 </UserControl>

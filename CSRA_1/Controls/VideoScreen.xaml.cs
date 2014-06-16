@@ -28,7 +28,9 @@ namespace CSRA_1.Controls
     {
         private Camera_NET.CameraControl cameraControl;
         private Camera_NET.CameraChoice _CameraChoice;
-       
+        public Bitmap _SnapShotBMP;
+
+        /*-------------------------------------------------------------------------------------------------------*/
         public VideoScreen()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace CSRA_1.Controls
             InitializeDirectShow();
         }
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void InitializeDirectShow()
         {
             // Register OnPaint callback for directshow.
@@ -45,8 +48,12 @@ namespace CSRA_1.Controls
             host.Child = cameraControl;
             grid1.Children.Add(host);
 
-            // Camera choice
+            SetCurrentCamera();
+        }
 
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void SetCurrentCamera()
+        {
             // Get List of devices (cameras)
             _CameraChoice.UpdateDeviceList();
 
@@ -64,21 +71,25 @@ namespace CSRA_1.Controls
             }
         }
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void pictureBox_Paint(object sender, System.Windows.Forms.PaintEventArgs args)
         {
         }
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void Window_Closing(Object sender, RoutedEventArgs e)
         {
             cameraControl.CloseCamera();
         }
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void buttonDone_Click(object sender, RoutedEventArgs e)
         {
             cameraControl.CloseCamera();
             OnPropertyChanged("DoneButtonPress");
         }
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void FillCameraList()
         {
             comboBoxCameraList.Items.Clear();
@@ -108,9 +119,9 @@ namespace CSRA_1.Controls
 
         #endregion
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void comboBoxCameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
- 
             if (comboBoxCameraList.SelectedIndex < 0)
             {
                 cameraControl.CloseCamera();
@@ -120,18 +131,13 @@ namespace CSRA_1.Controls
                 // Set camera
                 SetCamera(_CameraChoice.Devices[comboBoxCameraList.SelectedIndex].Mon, null);
             }
-
-           // FillResolutionList();
         }
 
+        /*-------------------------------------------------------------------------------------------------------*/
         private void SetCamera(IMoniker camera_moniker, Resolution resolution)
         {
             try
             {
-                // NOTE: You can debug with DirectShow logging:
-                //cameraControl.DirectShowLogFilepath = @"C:\YOUR\LOG\PATH.txt";
-
-                // Makes all magic with camera and DirectShow graph
                 cameraControl.SetCamera(camera_moniker, resolution);
             }
             catch (Exception e)
@@ -142,18 +148,72 @@ namespace CSRA_1.Controls
             if (!cameraControl.CameraCreated)
                 return;
 
-            // If you are using Direct3D surface overlay
-            // (see documentation about rebuild of library for it)
-            //cameraControl.UseGDI = false;
-
             cameraControl.MixerEnabled = true;
+        }
 
-           // cameraControl.OutputVideoSizeChanged += Camera_OutputVideoSizeChanged;
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void BtnSnapShot_Click(object sender, RoutedEventArgs e)
+        {
+            if (BtnSnapShot.Content.ToString() == "Snap Shot")
+                SnapAndDisplay();
+            else
+                HideStillAndStream();
+        }
 
-           // UpdateCameraBitmap();
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void SnapAndDisplay()
+        {
+            if (!cameraControl.CameraCreated)
+                return;
 
-           //// gui update
-           // UpdateGUIButtons();
+            try
+            {
+                _SnapShotBMP = cameraControl.SnapshotSourceImage();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"Error while getting a snapshot");
+            }
+
+            cameraControl.CloseCamera();
+            BtnSnapShot.Content = "Stream";
+
+            if (_SnapShotBMP == null)
+                return;
+
+            pictureBoxScreenshot.Source = CreateBitmapSourceFromBitmap(_SnapShotBMP);
+            pictureBoxScreenshot.Visibility = Visibility.Visible;
+        }
+
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void HideStillAndStream()
+        {
+            SetCurrentCamera();
+            BtnSnapShot.Content = "Snap Shot";
+            pictureBoxScreenshot.Visibility = Visibility.Hidden;
+        }
+
+        /*-------------------------------------------------------------------------------------------------------*/
+        public static BitmapSource CreateBitmapSourceFromBitmap(Bitmap bitmap)
+        {
+            if (bitmap == null)
+                throw new ArgumentNullException("bitmap");
+
+            return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                bitmap.GetHbitmap(),
+                IntPtr.Zero,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
+        }
+
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog { Filter = "Bitmap Image|*.bmp" };
+            if (dialog.ShowDialog() == true)
+            {
+                BitmapUtility.SaveImage(_SnapShotBMP, dialog.FileName);
+            }
         }
     }
 }
