@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Camera_NET;
 using System;
 using System.Diagnostics;
 using System.Windows;

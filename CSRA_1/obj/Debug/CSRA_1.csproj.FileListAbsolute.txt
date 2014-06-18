@@ -117,8 +117,6 @@ C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.exe
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.pdb
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\bin\Debug\CSRA_1.exe
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\bin\Debug\CSRA_1.pdb
-C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\bin\Debug\Camera_NET.pdb
-C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\bin\Debug\DirectShowLib-2010.pdb
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.csprojResolveAssemblyReference.cache
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\obj\Debug\Controls\AcquireScreen.baml
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\obj\Debug\Controls\CalibrationScreen.baml
