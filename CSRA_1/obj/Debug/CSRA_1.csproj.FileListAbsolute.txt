@@ -106,10 +106,6 @@ C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1_MarkupCompile.cache
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.g.resources
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.Properties.Resources.resources
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\obj\Debug\CSRA_1.csproj.GenerateResource.Cache
-C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\Camera_NET.dll
-C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\DirectShowLib-2010.dll
-C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\Camera_NET.pdb
-C:\Users\mhall\Source\Repos\CSRA_1\CSRA_1\bin\Debug\DirectShowLib-2010.pdb
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\bin\Debug\Camera_NET.dll
 C:\Users\Max\Source\Repos\CSRA_1\CSRA_1\bin\Debug\DirectShowLib-2010.dll
 C:\Users\SAA\Source\Repos\CSRA_1\CSRA_1\bin\Debug\CSRA_1.exe.config

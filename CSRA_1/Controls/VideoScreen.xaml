@@ -13,9 +13,10 @@
             <mcl:CameraControl Name="mc"/>
         </WindowsFormsHost>
 
-        <Button Content="Done" HorizontalAlignment="Center" Width="98" Margin="222,0,0,-44" Padding="8" FontSize="14" Name="buttonDone" Click="buttonDone_Click" VerticalAlignment="Bottom" Height="35"/>
-        <ComboBox x:Name="comboBoxCameraList" HorizontalAlignment="Left" Height="35" Margin="0,249,0,-44" VerticalAlignment="Top" Width="215" SelectionChanged="comboBoxCameraList_SelectionChanged" FontSize="14"/>
-        <Button x:Name="BtnSnapShot" Content="Snapshot" HorizontalAlignment="Left" Height="35" Margin="0,292,0,-87" VerticalAlignment="Top" Width="156" FontSize="14" Click="BtnSnapShot_Click"/>
-        <Button x:Name="BtnSave" Content="Save It" HorizontalAlignment="Left" Height="35" Margin="164,292,0,-87" VerticalAlignment="Top" Width="156" FontSize="14" Click="BtnSave_Click"/>
+        <Button Content="Done" HorizontalAlignment="Center" Width="98" Margin="220,0,2,-86" Padding="8" FontSize="14" Name="buttonDone" Click="buttonDone_Click" VerticalAlignment="Bottom" Height="35"/>
+        <ComboBox x:Name="comboBoxCameraList" HorizontalAlignment="Left" Height="35" Margin="0,249,0,-44" VerticalAlignment="Top" Width="164" SelectionChanged="comboBoxCameraList_SelectionChanged" FontSize="14"/>
+        <Button x:Name="BtnSnapShot" Content="Snap Shot" HorizontalAlignment="Left" Height="35" Margin="0,292,0,-87" VerticalAlignment="Top" Width="103" FontSize="14" Click="BtnSnapShot_Click"/>
+        <Button x:Name="BtnSave" Content="Save It" HorizontalAlignment="Left" Height="35" Margin="108,292,0,-87" VerticalAlignment="Top" Width="107" FontSize="14" Click="BtnSave_Click"/>
+        <ComboBox x:Name="comboBoxResolutions" HorizontalAlignment="Left" Height="35" Margin="169,249,0,-44" VerticalAlignment="Top" Width="151" SelectionChanged="comboBoxResolutions_SelectionChanged" FontSize="14"/>
     </Grid>
 </UserControl>

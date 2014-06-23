@@ -18,6 +18,7 @@ using Microsoft.Win32;
 using Camera_NET;
 using System.Drawing;
 using System.Runtime.InteropServices.ComTypes;
+using System.Windows.Interop;
 
 namespace CSRA_1.Controls
 {
@@ -49,6 +50,7 @@ namespace CSRA_1.Controls
             grid1.Children.Add(host);
 
             SetCurrentCamera();
+            FillResolutionList();
         }
 
         /*-------------------------------------------------------------------------------------------------------*/
@@ -68,6 +70,39 @@ namespace CSRA_1.Controls
                 cameraControl.SetCamera(camera_moniker, null);
 
                 FillCameraList();
+            }
+        }
+
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void FillResolutionList()
+        {
+            comboBoxResolutions.Items.Clear();
+
+            if (!cameraControl.CameraCreated)
+                return;
+
+            ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+
+            if (resolutions == null)
+                return;
+
+
+            int index_to_select = -1;
+
+            for (int index = 0; index < resolutions.Count; index++)
+            {
+                comboBoxResolutions.Items.Add(resolutions[index].ToString());
+
+                if (resolutions[index].CompareTo(cameraControl.Resolution) == 0)
+                {
+                    index_to_select = index;
+                }
+            }
+
+            // select current resolution
+            if (index_to_select >= 0)
+            {
+                comboBoxResolutions.SelectedIndex = index_to_select;
             }
         }
 
@@ -118,20 +153,6 @@ namespace CSRA_1.Controls
         }
 
         #endregion
-
-        /*-------------------------------------------------------------------------------------------------------*/
-        private void comboBoxCameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (comboBoxCameraList.SelectedIndex < 0)
-            {
-                cameraControl.CloseCamera();
-            }
-            else
-            {
-                // Set camera
-                SetCamera(_CameraChoice.Devices[comboBoxCameraList.SelectedIndex].Mon, null);
-            }
-        }
 
         /*-------------------------------------------------------------------------------------------------------*/
         private void SetCamera(IMoniker camera_moniker, Resolution resolution)
@@ -210,6 +231,49 @@ namespace CSRA_1.Controls
             {
                 BitmapUtility.SaveImage(_SnapShotBMP, dialog.FileName);
             }
+        }
+
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void comboBoxCameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBoxCameraList.SelectedIndex < 0)
+            {
+                cameraControl.CloseCamera();
+            }
+            else
+            {
+                // Set camera
+                SetCamera(_CameraChoice.Devices[comboBoxCameraList.SelectedIndex].Mon, null);
+            }
+        }
+
+        /*-------------------------------------------------------------------------------------------------------*/
+        private void comboBoxResolutions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!cameraControl.CameraCreated)
+                return;
+
+            int comboBoxResolutionIndex = comboBoxResolutions.SelectedIndex;
+            if (comboBoxResolutionIndex < 0)
+            {
+                return;
+            }
+            ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+
+            if (resolutions == null)
+                return;
+
+            if (comboBoxResolutionIndex >= resolutions.Count)
+                return; // throw
+
+            if (0 == resolutions[comboBoxResolutionIndex].CompareTo(cameraControl.Resolution))
+            {
+                // this resolution is already selected
+                return;
+            }
+
+            // Recreate camera
+            SetCamera(cameraControl.Moniker, resolutions[comboBoxResolutionIndex]);
         }
     }
 }
