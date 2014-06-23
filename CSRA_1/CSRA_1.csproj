@@ -40,11 +40,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Camera_NET">
-      <HintPath>..\..\..\..\Documents\Visual Studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\Camera_NET.dll</HintPath>
+      <HintPath>..\Camera_Net\bin\Release\Camera_NET.dll</HintPath>
     </Reference>
     <Reference Include="DirectShowLib-2010, Version=2.1.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Camera_Net\bin\Debug\DirectShowLib-2010.dll</HintPath>
+      <HintPath>..\Camera_Net\bin\Release\DirectShowLib-2010.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

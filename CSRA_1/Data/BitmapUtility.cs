@@ -512,6 +512,7 @@ namespace CSRA_1.Data
         public static Bitmap ConvertTo8Bpp(Bitmap tmpBmp)
         {
             //  convert to bytes
+
             byte[] imageBytes = null;
 
             CopyBitmapToMonochromeBytes(tmpBmp, ref imageBytes);
