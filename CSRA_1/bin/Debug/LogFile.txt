@@ -1,2 +1,0 @@
-6/18/2014, 2:36:34 PM, MainScreen: Enroll button press
-6/18/2014, 2:36:56 PM, MainScreen: Window closing
