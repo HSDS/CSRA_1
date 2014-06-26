@@ -197,7 +197,12 @@ namespace CSRA_1.Controls
             }
 
             cameraControl.CloseCamera();
+
+            // Set UI fuctionality.
             BtnSnapShot.Content = "Stream";
+            BtnSave.IsEnabled = true;
+            comboBoxResolutions.IsEnabled = false;
+            comboBoxCameraList.IsEnabled = false;
 
             if (_SnapShotBMP == null)
                 return;
@@ -207,7 +212,12 @@ namespace CSRA_1.Controls
         private void HideStillAndStream()
         {
             SetCurrentCamera();
+
+            // Set UI fuctionality.
             BtnSnapShot.Content = "Snap Shot";
+            BtnSave.IsEnabled = false;
+            comboBoxResolutions.IsEnabled = true;
+            comboBoxCameraList.IsEnabled = true;
         }
 
         /*-------------------------------------------------------------------------------------------------------*/
